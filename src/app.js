@@ -1,9 +1,10 @@
 import GameSavingLoader from './js/GameSavingLoader.js';
 
-GameSavingLoader.load()
-  .then((data) => {
+(async () => {
+  try {
+    const data = await GameSavingLoader.load();
     console.log('Данные загружены:', data);
-  })
-  .catch((error) => {
-    console.error('Ошибка при загрузке данных:', error);
-  });
+  } catch (error) {
+    console.error('Ошибка при загрузке данных:', error.message);
+  }
+})();
